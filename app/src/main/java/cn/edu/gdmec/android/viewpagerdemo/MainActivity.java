@@ -74,6 +74,34 @@ private boolean flag=true;
 
         };
         setViewPager();
+        vp.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (vp.getCurrentItem()==list.size()-1){
+                    tv3.setTextColor(Color.parseColor("#FF6600"));
+                    tv1.setTextColor(Color.parseColor("#050505"));
+                    tv2.setTextColor(Color.parseColor("#050505"));
+                }else if (vp.getCurrentItem()==0){
+                    tv1.setTextColor(Color.parseColor("#FF6600"));
+                    tv2.setTextColor(Color.parseColor("#050505"));
+                    tv3.setTextColor(Color.parseColor("#050505"));
+                }else if(vp.getCurrentItem()==1){
+                    tv2.setTextColor(Color.parseColor("#FF6600"));
+                    tv3.setTextColor(Color.parseColor("#050505"));
+                    tv1.setTextColor(Color.parseColor("#050505"));
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
     @Override
     public void onClick(View view) {
